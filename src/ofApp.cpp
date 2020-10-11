@@ -20,18 +20,21 @@ void ofApp::setup(){
     step.setLoop(true);
     oneStep.load("step_2.wav");//SE
     
-    str = "BODY DIRECTION & WALK: \n\nw (pressed): walk \nd: rightward \na: leftward \ns: backward \n\n\nHEAD DIRECTION: \n \nKEY_RIGHT: look right \nKEY_LEFT: look left \nKEY_UP: look up \nKEY_DOWN: look down \nKEY_SPACE: look forward";
+    str = "BODY DIRECTION & WALK: \n\nw: go \ne: stop \nd: rightward \na: leftward \ns: backward \n\n\nHEAD DIRECTION: \n \nKEY_RIGHT: look right \nKEY_LEFT: look left \nKEY_UP: look up \nKEY_DOWN: look down \nKEY_SPACE: look forward";
 
+ 
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if(bbStep == false && bStep == true){ go.play(); step.play();}
-    else if(bbStep == true && bStep == false){ step.stop(); stop.play();}
+//    if(bbStep == false && bStep == true){ go.play(); step.play();}
+//    else if(bbStep == true && bStep == false){ step.stop(); stop.play();}
+//
+//    bbStep = bStep;
     
-    bbStep = bStep;
-    
-    ofSetWindowTitle(ofToString(ofGetFrameRate(), 0));
+    ofSetWindowTitle("framerate: "+ofToString(ofGetFrameRate(), 0));
+//    cout<<ofToString(go.getPlayer())<<endl;
 
 }
 
@@ -43,16 +46,17 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(key == 'w') bStep=true;
+//    if(key == 'w') bStep=true;
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
     
-    if(key == 'w'){ bStep=false;}
-    if(key == 'a'){ left.play(); oneStep.play();}
-    if(key == 'd'){ right.play(); oneStep.play();}
-    if(key == 's'){ back.play(); oneStep.play();}
+    if(key == 'w'){ go.play();}
+    if(key == 'a'){ left.play();}
+    if(key == 'd'){ right.play();}
+    if(key == 's'){ back.play();}
+    if(key == 'e'){ stop.play();}
     
     if(key == OF_KEY_UP) lookUp.play();
     if(key == OF_KEY_DOWN) lookDown.play();

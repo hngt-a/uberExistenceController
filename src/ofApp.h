@@ -24,4 +24,7 @@ class ofApp : public ofBaseApp{
     ofSoundPlayer go, stop, right, left, back, forward, lookRight, lookLeft, lookUp, lookDown, step, oneStep;
     bool bStep, bbStep;
     string str;
+    
+//    ofSoundStream ss;
+    
 };
